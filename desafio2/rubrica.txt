@@ -6,15 +6,37 @@ Una vez descargado el proyecto se deben instalar las dependencias con el siguien
 
 npm install --> instala dependencias tanto de vue-router como element y firebase en el proyeto
 
-luego lo que se hace es traer la configuración de firebase autenthicate y debe agregarse en el archivo con ubicación /src/configs/Firebase.js
+Luego se creará el componente Crud el cual tendrá otros dos componentes addUser y Users, los cuales tendran la edición y creación de los pacientes y la lista respectivamente
 
-Esta configuración se obtiene del proyecto que se debe crear en firebase
+Para que el crud funcione es necesario conectarse a una api, es el caso del proyecto functions en la carpeta functions
 
-Lo siguiente es crear un componente Login el cual en este caso se hará con ayuda de element-ui, esto en la carpeta components
+Se deben instalar las dependencias con
 
-Luego se crea componente Home en la carpeta home dentro de components el cual tendrá solo un botón para realizar un logout y desautenticarse
+npm install
 
-Luego se creara el Router en el index de la carpeta router
+luego loguearse teniendo instalado firebase-tools, de la siguiente manera
+
+firebase login
+
+luego debe agregar el proyecto con
+
+firebase use --add
+
+y escoger el proyecto creado
+
+luego con el siguiente comando realizar un deploy
+
+firebase deploy --only functions
+
+Al terminar mostrará un mensaje con el nombre de la función y el end-point lo que nos dará la ruta
+
+functions[test(us-central1)]: Successful update operation
+
+us-central1 es lo primero luego el nombre del proyecto y seguido po .cloudfunctions.net / test que sería la ruta
+
+https://us-central1-conexion-vue.cloudfunctions.net/test
+
+
 
 
 

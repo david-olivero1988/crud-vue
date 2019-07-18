@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <Crd/>
+    <Crud/>
 </div>
 </template>
 
@@ -10,7 +10,7 @@ import Crd from './components/Crd';
 export default {
     name: 'App',
     components: {
-        Crd
+        Crud
     }
 }
 

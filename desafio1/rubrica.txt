@@ -14,6 +14,9 @@ Luego se crea un componente Home en la carpeta home dentro de components el cual
 
 Luego se creara el Router en el index de la carpeta router
 
+Es importante agregar también el loading en el botón para la autenticación
+
+
 
 
 
