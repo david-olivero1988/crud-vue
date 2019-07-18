@@ -12,6 +12,7 @@
                     v-model="formLabelAlign.password"
                     autocomplete="off"></el-input>
                 <el-button type="primary"
+                    :loading="loading"
                     class="ingresar-login"
                     @click="login">Ingresar</el-button>
         </el-form>
@@ -32,25 +33,24 @@ export default {
             formLabelAlign: {
                 user: '',
                 password: ''
-            }
+            },
+            loading: false
         };
     },
 
-    mounted() {
-        console.log(Firebase.auth().currentUser);
-    },
-
-
     methods: {
         login() {
+            this.loading = true;
             Firebase.auth()
                 .signInWithEmailAndPassword(this.formLabelAlign.user, this.formLabelAlign.password)
                 .then(
                     accept => {
                         this.$router.push('home');
+                        this.loading = false;
                     },
                     reject => {
                         var errorCode = reject.code;
+                        this.loading = false;
                         this.$message({
                             showClose: true,
                             message: reject.message,

@@ -6,8 +6,10 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/es'
 
-Vue.use(Element);
+
+Vue.use(Element, { locale })
 Vue.use(Vuex);
 Vue.use(axios);
 
@@ -15,11 +17,11 @@ const store = new Vuex.Store({
     state: {
         user: {
             nombre: 'david',
-            correo: 'davidolivero@gmail.com',
-            edad: 6,
+            correo: 'correo@gmail.com',
             id: ''
         },
         users: [],
+        edit: false,
         loading: false
     },
     mutations: {

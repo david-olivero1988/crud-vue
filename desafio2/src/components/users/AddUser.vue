@@ -12,6 +12,11 @@
     </el-form-item>
     <el-form-item>
         <el-button type="primary"
+            v-if="edit"
+            :loading="loading"
+            @click="editUser">Editar</el-button>
+        <el-button type="primary"
+            v-else
             :loading="loading"
             @click="addUser">Agregar</el-button>
     </el-form-item>
@@ -33,11 +38,22 @@ export default {
         addUser() {
             let user = {
                 nombre: this.user.nombre,
-                correo: this.user.correo,
-                edad: this.user.edad
+                correo: this.user.correo
             };
             this.loading = true;
             axios.post('https://us-central1-conexion-vue.cloudfunctions.net/test/user', this.user)
+                .then(accept => {
+                    this.loading = false;
+                    this.$store.dispatch('getUsers');
+                });
+        },
+        editUser() {
+            let user = {
+                nombre: this.user.nombre,
+                correo: this.user.correo
+            };
+            this.loading = true;
+            axios.put(`https://us-central1-conexion-vue.cloudfunctions.net/test/user/${this.user.id}`, user)
                 .then(accept => {
                     this.loading = false;
                     this.$store.dispatch('getUsers');
@@ -46,7 +62,8 @@ export default {
     },
     computed: {
         ...mapState([
-                    'user'
+                    'user',
+                    'edit'
         ])
     }
 };
