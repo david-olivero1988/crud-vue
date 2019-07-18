@@ -1,0 +1,23 @@
+Los pasos a seguir para el uso de este proyecto son los siguientes
+
+Para poder instalar este proyecto es necesario tener Node.js y npm
+
+Una vez descargado el proyecto se deben instalar las dependencias con el siguiente comando
+
+npm install --> instala dependencias tanto de vue-router como element y firebase en el proyeto
+
+luego lo que se hace es traer la configuración de firebase autenthicate y debe agregarse en el archivo con ubicación /src/configs/Firebase.js
+
+Esta configuración se obtiene del proyecto que se debe crear en firebase
+
+Lo siguiente es crear un componente Login el cual en este caso se hará con ayuda de element-ui, esto en la carpeta components
+
+Luego se crea componente Home en la carpeta home dentro de components el cual tendrá solo un botón para realizar un logout y desautenticarse
+
+Luego se creara el Router en el index de la carpeta router
+
+
+
+
+
+
